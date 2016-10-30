@@ -1,0 +1,16 @@
+<div ng-class="{loader: ctrl.on}">
+
+</div>
+<div style="clear: both;">
+<h3 ng-if="ctrl.found.length === 219 || ctrl.found.length === 0">Nothing found</h3>
+<h3 ng-if="ctrl.found && ctrl.found.length !== 0 && ctrl.found.length !== 219">Found {{ctrl.found.length}} items</h3>
+<ol ng-if="ctrl.found && ctrl.found.length !== 0 && ctrl.found.length !== 219">
+  <li ng-repeat="item in ctrl.found">
+    <div><b>ShortName</b>: {{ item.short_name }},</div>
+    <div><b>Name</b>: {{ item.name }},</div> 
+    <div><b>Description</b>: {{ item.description }}</div>
+    <button ng-click="onRemove({index: $index});">Don't want this one!</button>
+    <hr>
+  </li>
+</ol>
+</div>
