@@ -1,0 +1,9 @@
+<ul>
+  <li ng-repeat="item in $ctrl.items" >
+    <div><b>ID:</b> {{ item.id }}</div> 
+    <div><b>Short Name:</b> {{ item.short_name }}</div>
+    <div><a ui-sref="items_cat({shortName: item.short_name})"><b>Name:</b> {{ item.name }}</a></div>
+    
+    <hr>
+  </li>
+</ul>
