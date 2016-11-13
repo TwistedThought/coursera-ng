@@ -1,0 +1,57 @@
+<div class="container">
+	<fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="First Name"
+          ng-model="reg.user.firstname"
+          required>
+          
+          <span
+            ng-if="regForm.firstName.$error.required && regForm.firstName.$touched">
+            Please enter your first name
+          </span>
+          <br>
+
+        <input type="text" name="lastName" placeholder="Last Name"
+          ng-model="reg.user.lastname"
+          required>
+          
+          <span
+            ng-if="regForm.lastName.$error.required && regForm.lastName.$touched">
+            Please enter your last name
+          </span>
+          <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input type="text" name="dish" placeholder="Favorite Dish"
+          ng-model="reg.user.dish"
+          required>
+          {{ reg.message }}
+          <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit()">Submit</button>
+
+          <div style="margin-top: 10px;">
+            {{ reg.message_saved }}
+          </div>
+      </form>
+    </fieldset>
+</div>
